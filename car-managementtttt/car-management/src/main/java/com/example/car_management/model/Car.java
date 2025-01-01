@@ -13,16 +13,16 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "brand", nullable = false) // Adding nullable to indicate that brand cannot be null
+    @Column(name = "brand", nullable = false)
     private String brand; // Maps to "make" in the DTO
 
-    @Column(name = "model", nullable = false) // Adding nullable to indicate that model cannot be null
+    @Column(name = "model", nullable = false)
     private String model;
 
     @Column(name = "`year`", nullable = false) // Use backticks if "year" is a reserved keyword
     private int year; // Maps to "productionYear" in the DTO
 
-    @Column(name = "license_plate", nullable = false) // Ensures license plate cannot be null
+    @Column(name = "license_plate", nullable = false)
     private String licensePlate;
 
     // Default constructor
@@ -79,13 +79,9 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", licensePlate='" + licensePlate + '\'' +
-                '}';
+        return String.format("Car{id=%d, brand='%s', model='%s', year=%d, licensePlate='%s'}",
+                id, brand, model, year, licensePlate);
     }
 }
+
 
