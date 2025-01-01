@@ -18,7 +18,7 @@ public class ServiceCenter {
     @Column(nullable = false)  // Not nullable field
     private int capacity;
 
-    @Column(nullable = true)  // Nullable field for location
+    @Column // Nullable field for location (default is true if not specified)
     private String location;
 
     // Default constructor
@@ -75,13 +75,9 @@ public class ServiceCenter {
 
     @Override
     public String toString() {
-        return "ServiceCenter{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                ", capacity=" + capacity +
-                ", location='" + location + '\'' +
-                '}';
+        return String.format("ServiceCenter{id=%d, name='%s', city='%s', capacity=%d, location='%s'}",
+                id, name, city, capacity, location);
     }
 }
+
 
